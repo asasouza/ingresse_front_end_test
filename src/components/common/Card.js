@@ -34,10 +34,15 @@ const styles = {
 		padding: '10px',
 	},
 	card__image: {
+		cursor: 'pointer',
+		filter: 'saturate(90%)',
 		width: '100%',
+		'&:hover': {
+			filter: 'saturate(120%)'
+		}
 	},
 	card__title: {
-		fontSize: '20', 
+		fontSize: '20px', 
 		fontWeight: '700', 
 		marginTop: '0'
 	},

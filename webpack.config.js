@@ -30,6 +30,7 @@ module.exports = {
 			{
 				loader: 'css-loader',
 				options: {
+          sourceMap: true,
 					modules: true,
 					importLoaders: 1,
 					localIdentName: '[local]',
@@ -39,9 +40,9 @@ module.exports = {
 			]
 		},
 		{ test: /\.(png|jpg|gif)$/, use: [{ loader: 'file-loader', options: {outputPath: 'resources/images/'} }] },
-		{ test: /\.json$/, loader: 'json-loader' },
+		  // { test: /\.json$/, loader: 'json-loader' },
       // { test: /\.svg$/, loader: 'svg-inline-loader' },
-      {test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+      { test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       	use: [{
       		loader: 'file-loader',
       		options: {
@@ -49,6 +50,20 @@ module.exports = {
       			outputPath: 'resources/fonts/'
       		}
       	}]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       }
       ]
   },
