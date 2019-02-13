@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    "babel-plugin-transform-object-rest-spread",
+	"syntax-dynamic-import",
+    ["transform-runtime", { "regenerator": true }] 
+   ],
+  "presets": ["env", "react"]
+}
