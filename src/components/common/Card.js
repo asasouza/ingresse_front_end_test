@@ -27,16 +27,19 @@ Card.propTypes = {
 
 const styles = {
 	card: {
-		border: '1px solid #ccc', 
+		backgroundColor: '#f9f9f9',
+		border: '1px solid #3c3939', 
 		borderRadius: '3px', 
-		boxShadow: '1px 1px #f5f5f5',
+		boxShadow: '1.5px 1px rgba(31, 30, 30, 0.5)',
 	},
 	card__body: {
 		padding: '10px',
 	},
 	card__image: {
+		borderRadius: '3px 3px 0 0',
 		cursor: 'pointer',
 		filter: 'saturate(90%)',
+		height: '295px',
 		width: '100%',
 		'&:hover': {
 			filter: 'saturate(120%)'
@@ -45,6 +48,7 @@ const styles = {
 	card__title: {
 		fontSize: '20px', 
 		fontWeight: '700', 
+		minHeight: '54px',
 		marginTop: '0'
 	},
 

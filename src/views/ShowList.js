@@ -31,8 +31,6 @@ class ShowList extends Component {
 	}
 
 	render() {
-		// console.log('shows', this.props.shows);
-		// console.log('favorites', this.props.favorites);
 		if (!this.props.shows) {
 			return null;
 		}

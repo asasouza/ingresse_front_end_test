@@ -8,18 +8,18 @@ import Card from 'components/common/Card';
 
 const CardShow = props => {
 	const { genres, id, name, image } = props.show.show;
-	const poster = image ? image.medium : '';
-	const { cardShow__container } = props.classes;
+	const poster = image ? image.original : '';
+	const { cardShow, cardShow_genre, cardShow__genresContainer } = props.classes;
 
 	return (
-		<div className={cardShow__container}>
+		<div className={cardShow}>
 
 			{ _renderFavoriteButton(props) }
 
 			<Card title={name} image={poster} imageLink={`/shows/${id}`}>
-				<div>
+				<div className={cardShow__genresContainer}>
 					{genres.map((genre, key) => {
-						return <Badge sm key={key}>{genre}</Badge>;
+						return <Badge className={cardShow_genre} sm key={key}>{genre}</Badge>;
 					})}
 				</div>
 			</Card>
@@ -46,11 +46,18 @@ const _renderFavoriteButton = props => {
 };
 
 const styles = {
-	cardShow__container: {
+	cardShow: {
+		borderRadius: '8px',
 		display: 'inline-grid',
 		margin: '1%',
 		position: 'relative',
 		width: '30%', 
+	},
+	cardShow__genresContainer: {
+		minHeight: '45px'
+	},
+	cardShow_genre: {
+		margin: '0 2px',
 	},
 	cardShow__iconContainer: {
 		backgroundColor: 'rgba(255, 255, 255, 0.3)',

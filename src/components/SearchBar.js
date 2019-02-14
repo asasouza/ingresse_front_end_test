@@ -1,8 +1,9 @@
 //Modules
 import debounce from 'lodash/debounce';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { FaSearch } from 'react-icons/fa';
 import injectSheet from 'react-jss';
+import { connect } from 'react-redux';
 //Actions
 import { fetchShowList } from 'ducks/Show';
 
@@ -31,16 +32,53 @@ class SearchBar extends Component {
 	}
 
 	render() {
+		const { searchBar, searchBar__icon, searchBar__input } = this.props.classes;
 		return (
-			<div>
-				<input type='text' onChange={this._handleChangeTerm} value={this.state.term} />
+			<div className={searchBar}>
+				<FaSearch className={searchBar__icon} />
+				<input 
+					className={searchBar__input} 
+					onChange={this._handleChangeTerm} 
+					placeholder='Busque por séries, programas, etc...'
+					type='text' 
+					value={this.state.term}  
+				/>
 			</div>
 		);
 	}
 }
 
 const styles = {
-
+	searchBar: {
+		margin: '10px 3px',
+		position: 'relative',
+	},
+	searchBar__icon: {
+		position: 'absolute',
+		left: 10,
+		top: 10,
+		color: '#f5f5f5'
+	},
+	searchBar__input: {
+		backgroundColor: 'rgba(37, 35, 35, 0.5)',
+		border: '1px solid #3d3f40',
+		borderRadius: '4px',
+		// boxShadow: '1px 0px #8a7f7f',
+		color: '#f5f5f5',
+		display: 'block',
+		fontSize: '20px',
+		fontWeight: '700',
+		padding: '5px 5px 5px 35px',
+		transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
+		width: 'calc(100% - 40px)',
+		'&:focus': {
+			// color: '#495057',
+			// backgroundColor: '#fff',
+			borderColor: '#333',
+			outline: 0,
+			boxShadow: '0 0 0 0.2rem rgba(0, 123, 255, 0)'
+		}
+	}
 };
 
 export default connect(null, { fetchShowList })(injectSheet(styles)(SearchBar));
