@@ -21,10 +21,11 @@ class ShowList extends Component {
 			return (
 				<CardShow 
 					addFavorite={id => addFavoriteShow({ id })} 
-					show={show} 
-					key={key} 
-					removeFavorite={id => removeFavoriteShow({ id })}
 					isFavorite={favorites.indexOf(parseInt(key)) > -1}
+					key={key} 
+					show={show} 
+					removeFavorite={id => removeFavoriteShow({ id })}
+					
 				/>
 			);
 		});
@@ -36,8 +37,10 @@ class ShowList extends Component {
 		}
 		return (
 			<Container fluid lg>
-				<SearchBar />
-				{ this._renderShows() }
+				<SearchBar handleSearch={this.props.fetchShowList} />
+				<div style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
+					{ this._renderShows() }
+				</div>
 			</Container>
 		);
 	}

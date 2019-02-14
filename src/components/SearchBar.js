@@ -3,9 +3,6 @@ import debounce from 'lodash/debounce';
 import React, { Component } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import injectSheet from 'react-jss';
-import { connect } from 'react-redux';
-//Actions
-import { fetchShowList } from 'ducks/Show';
 
 class SearchBar extends Component {
 	
@@ -22,7 +19,7 @@ class SearchBar extends Component {
 	}
 
 	_search(term) {
-		this.props.fetchShowList({ term: term || 'game' });
+		this.props.handleSearch({ term: term || 'game' });
 	}
 
 	_handleChangeTerm(event) {
@@ -63,7 +60,6 @@ const styles = {
 		backgroundColor: 'rgba(37, 35, 35, 0.5)',
 		border: '1px solid #3d3f40',
 		borderRadius: '4px',
-		// boxShadow: '1px 0px #8a7f7f',
 		color: '#f5f5f5',
 		display: 'block',
 		fontSize: '20px',
@@ -72,8 +68,6 @@ const styles = {
 		transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
 		width: 'calc(100% - 40px)',
 		'&:focus': {
-			// color: '#495057',
-			// backgroundColor: '#fff',
 			borderColor: '#333',
 			outline: 0,
 			boxShadow: '0 0 0 0.2rem rgba(0, 123, 255, 0)'
@@ -81,4 +75,4 @@ const styles = {
 	}
 };
 
-export default connect(null, { fetchShowList })(injectSheet(styles)(SearchBar));
+export default injectSheet(styles)(SearchBar);
