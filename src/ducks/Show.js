@@ -7,6 +7,7 @@ import { LOOKUP_SHOW, SEARCH_SHOWS } from 'constants/APIEndpoints';
 //Types
 export const SHOWS_FETCH_FAILED = 'shows_fetch_failed';
 export const SHOWS_FETCH_SUCCESS = 'shows_fetch_success';
+export const SHOW_FETCH_SUCCESS = 'show_fetch_success';
 export const SHOWS_REQUESTING = 'shows_requesting';
 export const SHOW_ADD_FAVORITE = 'show_add_favorite';
 export const SHOW_REMOVE_FAVORITE = 'show_remove_favorite';
@@ -26,6 +27,9 @@ export default (state = INITIAL_STATE, action) => {
 
 		case SHOWS_FETCH_SUCCESS:
 			return { ...INITIAL_STATE, shows: action.payload, favoriteShows: state.favoriteShows };
+
+		case SHOW_FETCH_SUCCESS:
+			return { ...state, show: action.payload, error: null, requesting: false };
 
 		case SHOWS_REQUESTING:
 			return { ...state, requesting: true };
@@ -72,6 +76,10 @@ export const fetchShowList = (data) => {
 		})
 		.catch(err => {
 			console.log(err);
+			dispatch({
+				type: SHOWS_FETCH_FAILED,
+				payload: err.name
+			});
 		});
 	};
 };
@@ -81,12 +89,20 @@ export const fetchShow = (data) => {
 		dispatch({
 			type: SHOWS_REQUESTING
 		});
-		RequestProvider.get(`${LOOKUP_SHOW}/82`)
+		RequestProvider.get(`${LOOKUP_SHOW}/${data.id}`)
 		.then(response => {
 			console.log(response);
+			dispatch({
+				type: SHOW_FETCH_SUCCESS,
+				payload: response
+			});
 		})
 		.catch(err => {
 			console.log(err);
+			dispatch({
+				type: SHOWS_FETCH_FAILED,
+				payload: err.name
+			});
 		});
 	};
 };

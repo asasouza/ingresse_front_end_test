@@ -7,7 +7,7 @@ import injectSheet from 'react-jss';
 import Card from 'components/common/Card';
 
 const CardShow = props => {
-	const { genres, name, image } = props.show.show;
+	const { genres, id, name, image } = props.show.show;
 	const poster = image ? image.medium : '';
 	const { cardShow__container } = props.classes;
 
@@ -16,7 +16,7 @@ const CardShow = props => {
 
 			{ _renderFavoriteButton(props) }
 
-			<Card title={name} image={poster}>
+			<Card title={name} image={poster} imageLink={`/shows/${id}`}>
 				<div>
 					{genres.map((genre, key) => {
 						return <Badge sm key={key}>{genre}</Badge>;

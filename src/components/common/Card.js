@@ -2,13 +2,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import injectSheet from 'react-jss';
+import { Link } from 'react-router-dom';
 
 const Card = props => {
-	const { children, image, title } = props;
+	const { children, image, imageLink, title } = props;
 	const { card, card__body, card__image, card__title } = props.classes;
 	return (
 		<div className={card}>
-			{ image && <img src={image} className={card__image} role='presentation' />}
+			{ image && <Link to={imageLink}><img src={image} className={card__image} role='presentation' /></Link>}
 
 			<div className={card__body}>
 			{ title && <p className={card__title}>{title}</p> }

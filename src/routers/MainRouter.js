@@ -10,7 +10,8 @@ const MainRouter = (props) => {
 		<Router>
 			<Switch>
 				<Route exact path='/' component={ShowList} />
-				<Route path='/show/:id(\d+)' component={ShowDetail} />
+				<Route exact path='/shows' component={ShowList} />
+				<Route path='/shows/:id(\d+)' component={ShowDetail} />
 				<Route component={() => <div>404!</div>} />
 			</Switch>
 		</Router>
