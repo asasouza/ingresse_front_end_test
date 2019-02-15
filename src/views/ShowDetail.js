@@ -3,7 +3,6 @@ import { Container } from 'aphrodite-react';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //Components
-import SearchBar from 'components/SearchBar';
 import ShowDetails from 'components/ShowDetails';
 
 //Actions
@@ -22,7 +21,6 @@ class ShowDetail extends Component {
 		}
 		return (
 			<Container fluid lg>
-				<SearchBar handleSearch={(term) => console.log(term)} />
 				<ShowDetails 
 					addFavorite={id => addFavoriteShow({ id })} 
 					isFavorite={favorites.indexOf(parseInt(show.id)) > -1}

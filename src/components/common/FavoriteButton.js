@@ -44,7 +44,8 @@ const styles = {
 			width: '155px',
 		},
 		'&:hover $cardShow_favoriteLabel': {
-			opacity: '1'
+			opacity: '1',
+			visibility: 'visible'
 		},
 		'&:hover $cardShow__icon': {
 			color: '#fffa00'
@@ -61,7 +62,8 @@ const styles = {
 		position: 'absolute',
 		textTransform: 'uppercase',
 		top: '7px',
-		transition: 'opacity 1s',
+		transition: 'opacity 1.5s',
+		visibility: 'hidden'
 	},
 };
 

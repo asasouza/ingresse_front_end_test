@@ -5,10 +5,10 @@ import injectSheet from 'react-jss';
 import { Link } from 'react-router-dom';
 
 const Card = props => {
-	const { children, image, imageLink, title } = props;
+	const { children, className, image, imageLink, title } = props;
 	const { card, card__body, card__image, card__title } = props.classes;
 	return (
-		<div className={card}>
+		<div className={`${card} ${className}`}>
 			{ image && <Link to={imageLink}><img src={image} className={card__image} role='presentation' /></Link>}
 
 			<div className={card__body}>
@@ -39,7 +39,7 @@ const styles = {
 		borderRadius: '3px 3px 0 0',
 		cursor: 'pointer',
 		filter: 'saturate(90%)',
-		height: '295px',
+		height: '360px',
 		width: '100%',
 		'&:hover': {
 			filter: 'saturate(120%)'

@@ -29,13 +29,13 @@ module.exports = {
 			},
 			{
 				loader: 'css-loader',
-				options: {
+				// options: {
           // sourceMap: true,
 					// modules: true,
 					// importLoaders: 1,
-					localIdentName: '[local]',
-					minimize: true
-				}
+					// localIdentName: '[local]',
+					// minimize: true
+				// }
 			}
 			]
 		},
