@@ -14,7 +14,8 @@ import { addFavoriteShow, fetchShowList, removeFavoriteShow } from 'ducks/Show';
 class ShowList extends Component {
 	
 	componentDidMount() {
-		this.props.fetchShowList({ term: 'game' });
+		const searchTerm = this.props.location.search.replace('?q=', '');
+		this.props.fetchShowList({ term: searchTerm || 'game' });
 	}
 
 	_renderShows() {

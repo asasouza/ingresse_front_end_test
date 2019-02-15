@@ -3,6 +3,7 @@ import debounce from 'lodash/debounce';
 import React, { Component } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import injectSheet from 'react-jss';
+import { withRouter } from 'react-router';
 
 class SearchBar extends Component {
 	
@@ -10,7 +11,7 @@ class SearchBar extends Component {
 		super(props);
 
 		this.state = {
-			term: ''
+			term: this.props.location.search.replace('?q=', '').replace(/%20/g, ' ') || ''
 		};
 
 		this._handleChangeTerm = this._handleChangeTerm.bind(this);
@@ -23,9 +24,16 @@ class SearchBar extends Component {
 	}
 
 	_handleChangeTerm(event) {
-		this.setState({ term: event.target.value });
+		const { value } = event.target;
+		this.setState({ term: value });
 
-		this._search(event.target.value);
+		if (value) {
+			this.props.history.push(`/?q=${value}`);
+		} else {
+			this.props.history.push('/');
+		}
+
+		this._search(value);
 	}
 
 	render() {
@@ -75,4 +83,4 @@ const styles = {
 	}
 };
 
-export default injectSheet(styles)(SearchBar);
+export default withRouter(injectSheet(styles)(SearchBar));
