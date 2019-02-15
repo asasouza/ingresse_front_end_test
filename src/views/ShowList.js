@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //Components
 import CardShow from 'components/CardShow';
+import CardShowPlaceholder from 'components/CardShowPlaceholder';
 import SearchBar from 'components/SearchBar';
 //Actions
 import { addFavoriteShow, fetchShowList, removeFavoriteShow } from 'ducks/Show';
@@ -31,15 +32,21 @@ class ShowList extends Component {
 		});
 	}
 
-	render() {
-		if (!this.props.shows) {
-			return null;
+	_renderPlaceholders() {
+		const placeholders = [];
+		for (let i = 0; i < 4; i++) {
+			placeholders.push(<CardShowPlaceholder key={i} />);
 		}
+		return placeholders;
+	}
+
+	render() {
+		const { shows, requesting } = this.props;
 		return (
 			<Container fluid lg>
 				<SearchBar handleSearch={this.props.fetchShowList} />
 				<div style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
-					{ this._renderShows() }
+					{ !shows || requesting ? this._renderPlaceholders() : this._renderShows() }
 				</div>
 			</Container>
 		);
@@ -48,8 +55,10 @@ class ShowList extends Component {
 
 function mapStateToProps(state) {
 	return {
+		favorites: state.show.favoriteShows,
+		requesting: state.show.requesting,
 		shows: state.show.shows,
-		favorites: state.show.favoriteShows
+		
 	};
 }
 
