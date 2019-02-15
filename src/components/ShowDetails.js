@@ -51,7 +51,7 @@ const styles = {
 		margin: '50px 0'
 	},
 	showDetails__genre: {
-		margin: 5
+		margin: '5px !important'
 	},
 	showDetails__infoContainer: {
 		display: 'flex', 

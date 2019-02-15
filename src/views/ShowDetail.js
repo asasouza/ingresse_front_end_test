@@ -3,7 +3,9 @@ import { Container } from 'aphrodite-react';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //Components
+import CardError from 'components/common/CardError';
 import ShowDetails from 'components/ShowDetails';
+import ShowDetailsPlaceholder from 'components/ShowDetailsPlaceholder';
 
 //Actions
 import { addFavoriteShow, fetchShow, removeFavoriteShow } from 'ducks/Show';
@@ -15,18 +17,28 @@ class ShowDetail extends Component {
 	}
 
 	render() {
-		const { addFavoriteShow, favorites, show, removeFavoriteShow } = this.props;
-		if (this.props.requesting || !this.props.show) {
-			return <div>Loading...</div>;
+		const { addFavoriteShow, error, favorites, requesting, show, removeFavoriteShow } = this.props;
+
+		if (error) {
+			return (
+				<Container fluid lg>
+					<CardError message={'Sorry, we couldn\'t find the show that you are looking for.'} />
+				</Container>
+			);
 		}
+
 		return (
 			<Container fluid lg>
-				<ShowDetails 
-					addFavorite={id => addFavoriteShow({ id })} 
-					isFavorite={favorites.indexOf(parseInt(show.id)) > -1}
-					show={show} 
-					removeFavorite={id => removeFavoriteShow({ id })}
-				/>
+				{
+					requesting || !show ? <ShowDetailsPlaceholder /> 
+					:
+					<ShowDetails 
+						addFavorite={id => addFavoriteShow({ id })} 
+						isFavorite={favorites.indexOf(parseInt(show.id)) > -1}
+						show={show} 
+						removeFavorite={id => removeFavoriteShow({ id })}
+					/>	
+				}
 			</Container>
 		);
 	}

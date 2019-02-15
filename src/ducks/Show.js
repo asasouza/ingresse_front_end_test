@@ -32,7 +32,7 @@ export default (state = INITIAL_STATE, action) => {
 			return { ...state, show: action.payload, error: null, requesting: false };
 
 		case SHOWS_REQUESTING:
-			return { ...state, requesting: true };
+			return { ...state, requesting: true, error: null };
 
 		case SHOW_ADD_FAVORITE: {
 			if (state.favoriteShows.indexOf(action.payload) === -1) {
@@ -66,6 +66,7 @@ export const fetchShowList = (data) => {
 
 		RequestProvider.get(`${SEARCH_SHOWS}?q=${data.term}`)
 		.then(response => {
+			if (response.length === 0) { throw new Error('No results found.') }
 			const shows = mapKeys(response, (value) => {
 				return value.show.id;
 			});
@@ -78,7 +79,7 @@ export const fetchShowList = (data) => {
 			console.log(err);
 			dispatch({
 				type: SHOWS_FETCH_FAILED,
-				payload: err.name
+				payload: err.message
 			});
 		});
 	};

@@ -4,6 +4,7 @@ import map from 'lodash/map';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //Components
+import CardError from 'components/common/CardError';
 import CardShow from 'components/CardShow';
 import CardShowPlaceholder from 'components/CardShowPlaceholder';
 import SearchBar from 'components/SearchBar';
@@ -41,11 +42,12 @@ class ShowList extends Component {
 	}
 
 	render() {
-		const { shows, requesting } = this.props;
+		const { error, requesting, shows } = this.props;
 		return (
 			<Container fluid lg>
 				<SearchBar handleSearch={this.props.fetchShowList} />
 				<div style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
+					{ error && <CardError message={'Sorry, we couldn\'t find the shows that you are looking for. Try another search term.'} /> }
 					{ !shows || requesting ? this._renderPlaceholders() : this._renderShows() }
 				</div>
 			</Container>
@@ -55,6 +57,7 @@ class ShowList extends Component {
 
 function mapStateToProps(state) {
 	return {
+		error: state.show.error,
 		favorites: state.show.favoriteShows,
 		requesting: state.show.requesting,
 		shows: state.show.shows,

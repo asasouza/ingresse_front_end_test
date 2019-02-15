@@ -40,7 +40,7 @@ const styles = {
 		minHeight: '45px'
 	},
 	cardShow_genre: {
-		margin: '2px',
+		margin: '2px !important',
 	},
 	'@media(min-width: 980px)': {
 		cardShow: {
