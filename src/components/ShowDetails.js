@@ -1,4 +1,5 @@
 //Modules
+import PropTypes from 'prop-types';
 import { Badge } from 'aphrodite-react';
 import React from 'react';
 import injectSheet from 'react-jss';
@@ -42,6 +43,13 @@ const ShowDetails = props => {
 			</div>
 		</div>
 	);
+};
+
+ShowDetails.propTypes = {
+	addFavorite: PropTypes.func.isRequired,
+	isFavorite: PropTypes.bool.isRequired,
+	removeFavorite: PropTypes.func.isRequired,
+	show: PropTypes.object.isRequired,
 };
 
 const styles = {

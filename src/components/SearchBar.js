@@ -1,9 +1,10 @@
 //Modules
 import debounce from 'lodash/debounce';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import injectSheet from 'react-jss';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 class SearchBar extends Component {
 	
@@ -16,7 +17,6 @@ class SearchBar extends Component {
 
 		this._handleChangeTerm = this._handleChangeTerm.bind(this);
 		this._search = debounce(this._search.bind(this), 500);
-
 	}
 
 	_search(term) {
@@ -28,9 +28,9 @@ class SearchBar extends Component {
 		this.setState({ term: value });
 
 		if (value) {
-			this.props.history.push(`/?q=${value}`);
+			this.props.history.replace(`/?q=${value}`);
 		} else {
-			this.props.history.push('/');
+			this.props.history.replace('/');
 		}
 
 		this._search(value);
@@ -52,6 +52,10 @@ class SearchBar extends Component {
 		);
 	}
 }
+
+SearchBar.propTypes = {
+	handleSearch: PropTypes.func.isRequired
+};
 
 const styles = {
 	searchBar: {

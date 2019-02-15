@@ -3,15 +3,15 @@ import React from 'react';
 import injectSheet from 'react-jss';
 
 const CardShowPlaceholder = props => {
-	const { cardShowPlaceholder } = props.classes;
+	const { cardShowPlaceholder, cardShowPlaceholder__gender, cardShowPlaceholder__name, cardShowPlaceholder__poster } = props.classes;
 	return (
 		<div className={cardShowPlaceholder}>
-			<Placeholder style={{ height: '360px', borderRadius: '3px 3px 0 0' }} />
-			<div style={{marginBottom: 5, marginTop: 10}}>
-				<Placeholder style={{ borderRadius: 0, height: '54px' }} />
+			<Placeholder className={cardShowPlaceholder__poster} />
+			<div style={{ marginBottom: 5, marginTop: 10 }}>
+				<Placeholder className={cardShowPlaceholder__name} />
 			</div>
 			<div>
-			<Placeholder style={{ borderRadius: 0, height: '45px', padding: '10px' }} />
+			<Placeholder className={cardShowPlaceholder__gender} />
 			</div>
 			
 		</div>
@@ -27,6 +27,19 @@ const styles = {
 		margin: '1%',
 		position: 'relative',
 		width: '49%',
+	},
+	cardShowPlaceholder__gender: {
+		borderRadius: 0, 
+		height: '45px', 
+		padding: '10px'
+	},
+	cardShowPlaceholder__name: {
+		borderRadius: 0, 
+		height: '54px'
+	},
+	cardShowPlaceholder__poster: {
+		borderRadius: '3px 3px 0 0',
+		height: '360px', 
 	},
 	'@media(min-width: 980px)': {
 		cardShowPlaceholder: {

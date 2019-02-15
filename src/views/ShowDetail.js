@@ -14,6 +14,7 @@ class ShowDetail extends Component {
 	
 	componentDidMount() {
 		this.props.fetchShow({ id: this.props.match.params.id });
+		window.scrollTo(0, 0);
 	}
 
 	render() {

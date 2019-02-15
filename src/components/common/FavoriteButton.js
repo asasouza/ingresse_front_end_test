@@ -1,4 +1,5 @@
 //Modules
+import PropTypes from 'prop-types';
 import React from 'react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import injectSheet from 'react-jss';
@@ -20,6 +21,12 @@ const FavoriteButton = props => {
 			<span className={cardShow_favoriteLabel}>Adicionar aos favoritos</span>
 		</div>
 	);
+};
+
+FavoriteButton.propTypes = {
+	addFavorite: PropTypes.func.isRequired,
+	isFavorite: PropTypes.bool.isRequired,
+	removeFavorite: PropTypes.func.isRequired
 };
 
 const styles = {

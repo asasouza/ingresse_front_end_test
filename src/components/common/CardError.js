@@ -1,4 +1,5 @@
 //Modules
+import PropTypes from 'prop-types';
 import React from 'react';
 import { FaGrinBeamSweat } from 'react-icons/fa';
 import injectSheet from 'react-jss';
@@ -16,6 +17,10 @@ const CardError = props => {
 			</p>
 		</Card>
 	);
+};
+
+CardError.propTypes = {
+	message: PropTypes.string.isRequired
 };
 
 const styles = {

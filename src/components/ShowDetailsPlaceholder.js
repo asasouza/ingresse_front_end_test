@@ -2,7 +2,7 @@
 import { Placeholder } from 'aphrodite-react';
 import React from 'react';
 import injectSheet from 'react-jss';
-
+//Components
 import Card from 'components/common/Card';
 
 const ShowDetailsPlaceholder = props => {
