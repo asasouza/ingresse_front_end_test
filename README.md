@@ -30,6 +30,7 @@ Para gerar os arquivos de produção é necessário executar no diretório do pr
 
 ## Tecnologias
 Foram utilizadas as seguintes tecnologias para desenvolvimento desta aplicação de teste:
+
 		- React JS;
 		- Redux + Redux Thunk;
 		- React Router;
