@@ -76,10 +76,9 @@ export const fetchShowList = (data) => {
 			});
 		})
 		.catch(err => {
-			console.log(err);
 			dispatch({
 				type: SHOWS_FETCH_FAILED,
-				payload: err.message
+				payload: err.message || err
 			});
 		});
 	};
@@ -99,10 +98,9 @@ export const fetchShow = (data) => {
 			});
 		})
 		.catch(err => {
-			console.log(err);
 			dispatch({
 				type: SHOWS_FETCH_FAILED,
-				payload: err.name
+				payload: err.name || err
 			});
 		});
 	};

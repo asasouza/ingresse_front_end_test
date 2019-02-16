@@ -29,19 +29,10 @@ module.exports = {
 			},
 			{
 				loader: 'css-loader',
-				// options: {
-          // sourceMap: true,
-					// modules: true,
-					// importLoaders: 1,
-					// localIdentName: '[local]',
-					// minimize: true
-				// }
 			}
 			]
 		},
-		{ test: /\.(png|jpg|gif)$/, use: [{ loader: 'file-loader', options: {outputPath: 'resources/images/'} }] },
-		  // { test: /\.json$/, loader: 'json-loader' },
-      // { test: /\.svg$/, loader: 'svg-inline-loader' },
+		{ test: /\.(png|jpg|gif)$/, use: [{ loader: 'file-loader', options: { outputPath: 'resources/images/' } }] },
       { test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       	use: [{
       		loader: 'file-loader',
@@ -69,7 +60,6 @@ module.exports = {
   },
   plugins: [
     htmlWebpackPlugin,
-  	
   	],
   	devServer: {
   		historyApiFallback: true
