@@ -1,5 +1,5 @@
 //Modules
-import { Container } from 'aphrodite-react';
+import Container from 'aphrodite-react/dist/components/Grid/Container';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //Components

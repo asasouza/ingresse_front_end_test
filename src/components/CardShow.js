@@ -1,6 +1,6 @@
 //Modules
 import PropTypes from 'prop-types';
-import { Badge } from 'aphrodite-react';
+import Badge from 'aphrodite-react/dist/components/Badge/Badge';
 import React from 'react';
 import injectSheet from 'react-jss';
 //Components

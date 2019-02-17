@@ -1,4 +1,4 @@
-import { Placeholder } from 'aphrodite-react';
+import Placeholder from 'aphrodite-react/dist/components/Placeholder/Placeholder';
 import React from 'react';
 import injectSheet from 'react-jss';
 

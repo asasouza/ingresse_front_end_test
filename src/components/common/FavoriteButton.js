@@ -1,7 +1,9 @@
 //Modules
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons/faStar';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons/faStar';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { FaStar, FaRegStar } from 'react-icons/fa';
 import injectSheet from 'react-jss';
 
 const FavoriteButton = props => {
@@ -10,14 +12,14 @@ const FavoriteButton = props => {
 	if (isFavorite) {
 		return (
 			<div className={cardShow__iconContainer} onClick={removeFavorite}>
-				<FaStar size={15} className={cardShow__icon} />
+				<FontAwesomeIcon icon={faStarSolid} className={cardShow__icon} />
 				<span className={cardShow_favoriteLabel}>Remover dos favoritos</span>
 			</div>
 		);
 	}
 	return (
 		<div className={cardShow__iconContainer} onClick={addFavorite}>
-			<FaRegStar size={15} className={cardShow__icon} />
+			<FontAwesomeIcon icon={faStarRegular} style='regular' className={cardShow__icon} />
 			<span className={cardShow_favoriteLabel}>Adicionar aos favoritos</span>
 		</div>
 	);

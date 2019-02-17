@@ -1,8 +1,9 @@
 //Modules
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import debounce from 'lodash/debounce';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { FaSearch } from 'react-icons/fa';
 import injectSheet from 'react-jss';
 import { withRouter } from 'react-router-dom';
 
@@ -40,7 +41,7 @@ class SearchBar extends Component {
 		const { searchBar, searchBar__icon, searchBar__input } = this.props.classes;
 		return (
 			<div className={searchBar}>
-				<FaSearch className={searchBar__icon} />
+				<FontAwesomeIcon icon={faSearch} className={searchBar__icon} />
 				<input 
 					className={searchBar__input} 
 					onChange={this._handleChangeTerm} 

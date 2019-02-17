@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const path = require('path');
 
@@ -60,6 +61,7 @@ module.exports = {
   },
   plugins: [
   htmlWebpackPlugin,
+  // new BundleAnalyzerPlugin()
   ],
   devServer: {
     historyApiFallback: true
