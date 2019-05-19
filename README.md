@@ -1,4 +1,4 @@
-# Ingresse - FrontEnd Developer Test - Alex Sandro A. Souza @asasouza
+# React TV Maze - Alex Sandro A. Souza @asasouza
 
 
 ## Configurando o ambiente de desenvolvimento
@@ -23,7 +23,8 @@ A aplicação é divida na seguinte hierarquia de diretórios:
 		App.js
 		index.js
 
-No desenvolvimento da aplicação foi utilizado o design pattern <a href="https://github.com/erikras/ducks-modular-redux">Ducks</a> e estilização com <a href='https://cssinjs.org/'>css-in-js</a> utilizando o módulo ReactJSS. Os dados para teste e exibição foram todos coletados da API publica recomendada na documentação do teste.
+No desenvolvimento da aplicação foi utilizado o design pattern <a href="https://github.com/erikras/ducks-modular-redux">Ducks</a> e estilização com <a href='https://cssinjs.org/'>css-in-js</a> utilizando o módulo ReactJSS. 
+Os dados para teste e exibição foram todos coletados da API publica <a href="https://www.tvmaze.com/api">TV MAZE</a>.
 
 ## Gerando arquivos de produção
 Para gerar os arquivos de produção é necessário executar no diretório do projeto o comando <code>npx webpack -p</code>. Este gerará a pasta contendo toda o código unificado e minificado da aplicação e importará as imagens, fontes e css necessários e utilizados pela aplicação.
