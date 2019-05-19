@@ -91,7 +91,6 @@ export const fetchShow = (data) => {
 		});
 		RequestProvider.get(`${LOOKUP_SHOW}/${data.id}`)
 		.then(response => {
-			console.log(response);
 			dispatch({
 				type: SHOW_FETCH_SUCCESS,
 				payload: response

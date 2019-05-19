@@ -19,7 +19,7 @@ const FavoriteButton = props => {
 	}
 	return (
 		<div className={cardShow__iconContainer} onClick={addFavorite}>
-			<FontAwesomeIcon icon={faStarRegular} style='regular' className={cardShow__icon} />
+			<FontAwesomeIcon icon={faStarRegular} className={cardShow__icon} />
 			<span className={cardShow_favoriteLabel}>Adicionar aos favoritos</span>
 		</div>
 	);
