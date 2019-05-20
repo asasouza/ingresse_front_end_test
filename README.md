@@ -1,5 +1,5 @@
 # React TV Maze - Alex Sandro A. Souza @asasouza
-
+Esta aplicação está disponível para uso em https://react-tv-maze.herokuapp.com/.
 
 ## Configurando o ambiente de desenvolvimento
 1. Acesse o repositório do projeto hospedado no <a href='https://github.com/asasouza/react-tv-maze'>Github</a> e clone-o para o diretório desejada através do comando <code>git clone https://github.com/asasouza/react-tv-maze.git</code>.
